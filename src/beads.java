@@ -14,10 +14,7 @@ public class beads {
     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("beads.out")));
     // Use StringTokenizer vs. readLine/split -- lots faster
     StringTokenizer st = new StringTokenizer(f.readLine());
-						  // Get line, break into tokens
-    int i1 = Integer.parseInt(st.nextToken());    // first integer
-    int i2 = Integer.parseInt(st.nextToken());    // second integer
-    out.println(i1+i2);                           // output result
-    out.close();                                  // close the output file
+
+    //while loop to check bead colors
   }
 }
