@@ -14,6 +14,7 @@ public class beads {
     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("beads.out")));
     // Use StringTokenizer vs. readLine/split -- lots faster
     StringTokenizer st = new StringTokenizer(f.readLine());
+    String r = f.readLine();
 	int length = Integer.parseInt (fileIn.readLine ()); 
     char [] necklace = fileIn.next ().toCharArray (); ;  
     int currentCount = 1; 
@@ -21,5 +22,16 @@ public class beads {
     int [] count = new int [length];  
     int currentLength = 1; 
     boolean x = true;
-
+    
+    for (int i = 0 ; i  < length; i ++){ 
+        count [i] = 1; 
+        char a = 'w';
+        for (int j = i; j < length; j++) {
+        	if (r.charAt(j) == 'w' || a == r.charAt(j)) {
+                beadCount++;
+                if (r.charAt(j) != 'w') {
+                    x = false;
+                    a = r.charAt(j);
+        }
+  }
 }
