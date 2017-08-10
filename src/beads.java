@@ -15,23 +15,35 @@ public class beads {
     // Use StringTokenizer vs. readLine/split -- lots faster
     StringTokenizer st = new StringTokenizer(f.readLine());
     String r = f.readLine();
-	int length = Integer.parseInt (fileIn.readLine ()); 
-    char [] necklace = fileIn.next ().toCharArray (); ;  
-    int currentCount = 1; 
+	int length = Integer.parseInt (f.readLine ()); 
+    char [] necklace = f.next ().toCharArray ();  
+    int currentCount = 0;
+    int prevBead = 0;
     int beadCount = 0; 
     int [] count = new int [length];  
-    int currentLength = 1; 
+    int y = 0;
+    int beadColor = 0;
     boolean x = true;
     
-    for (int i = 0 ; i  < length; i ++){ 
+    for (int i = 0 ; i  < 2 * length; i ++){ 
         count [i] = 1; 
         char a = 'w';
-        for (int j = i; j < length; j++) {
-        	if (r.charAt(j) == 'w' || a == r.charAt(j)) {
+        for (int j = i; j < 2 * length; j++) {
+        	if (r.charAt(j) == 'w' /*|| a == r.charAt(j)*/) {
                 beadCount++;
-                if (r.charAt(j) != 'w') {
-                    x = false;
-                    a = r.charAt(j);
-        }
+                currentCount++;}
+            else if (r.charAt(j) == beadColor) {
+                x = false;
+                beadCount = 0;
+                currentCount++;}
+            else {
+            	y = (currentCount + prevBead>y)?currentCount+prevBead:y;
+            	beadColor = r.charAt(j);
+            	currentCount = beadCount + 1;
+            	beadCount = 0;
+            }
   }
+     System.out.println(y<length?y:length);
+}
+}
 }
